@@ -13,7 +13,7 @@
     <!-- Custom SCSS -->
     <link rel="stylesheet" href="/dist/css/main.css">
     <!-- Scripts -->
-    <script src="index.js" defer></script>
+    <script type="module" src="index.js" defer></script>
 </head>
 <body>
     <header>
@@ -32,7 +32,12 @@
                 rows="10"
                 placeholder="Write your endorsement here"
             ></textarea>
-            <button class="publish-btn">Publish</button>
+            <button 
+                class="publish-btn"
+                id="publish-btn"
+            >
+                Publish
+            </button>
         </section>
         <section class="endorsements-wrapper">
             <h2 class="section-heading">&dash; Endorsements &dash;</h2>
