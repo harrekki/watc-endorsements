@@ -1,0 +1,34 @@
+@use '../util/' as u;
+
+body {
+    background: var(--bg-color);
+    max-width: u.rem(390);
+    margin: u.rem(50) auto;
+}
+
+img {
+    width: u.em(90);
+    margin: 0 auto;
+}
+
+main {
+    padding: 0 u.em(36);
+}
+
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: u.em(15);
+}
+
+.endorsements-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: u.rem(12);
+}
+
+footer {
+    padding: u.em(30) 0;
+    text-align: center;
+    font-size: u.rem(12);
+}

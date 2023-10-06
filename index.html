@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>We Are the Champions</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Josefin+Sans:ital,wght@0,700;1,400&display=swap" 
+        rel="stylesheet">
     <!-- Custom SCSS -->
     <link rel="stylesheet" href="/dist/css/main.css">
     <!-- Scripts -->
@@ -14,26 +20,22 @@
         <img 
             src="images/freddie.png" 
             alt="outline of singer Freddie Mercury on stage with his fist in the air"
-            width=90"
-            style="background-color: black;"
         />
-        <h1>We Are the Champions</h1>
+        <h1 class="title">We Are the Champions</h1>
     </header>
     <main>
         <section class="form-wrapper">
-            <form action="">
-                <textarea 
-                    name="endorse-field" 
-                    id="endorse-field" 
-                    cols="30" 
-                    rows="10"
-                    placeholder="Write your endorsement here"
-                ></textarea>
-                <button class="publish-btn">Publish</button>
-            </form>
+            <textarea 
+                name="endorse-field" 
+                id="endorse-field" 
+                cols="30" 
+                rows="10"
+                placeholder="Write your endorsement here"
+            ></textarea>
+            <button class="publish-btn">Publish</button>
         </section>
         <section class="endorsements-wrapper">
-            <h2>&dash; Endorsements &dash;</h2>
+            <h2 class="section-heading">&dash; Endorsements &dash;</h2>
             <article class="endorsement">
                 <p>
                     Hi Bob! Your React Router course is so good. The students are going to LOVE IT. I’m so excited for the launch :) 🔥 Per

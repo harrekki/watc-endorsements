@@ -1,0 +1,41 @@
+@use '../util/' as u;
+
+$headlineFont: 'Josefin Sans', sans-serif;
+$textFont: 'Inter', sans-serif;
+
+body {
+    font-family: $textFont;
+    color: var(--text-color);
+    // border: 2px solid white;
+}
+
+h1, h2, button {
+    font-family: $headlineFont;
+    font-weight: 700;
+}
+
+.title {
+    font-size: u.rem(25);
+    text-align: center;
+    margin-top: u.rem(17);
+    margin-bottom: u.rem(20);
+}
+
+.section-heading {
+    font-size: u.rem(20);
+    text-align: center;
+    padding: u.rem(25) 0 u.rem(20);
+}
+
+a {
+    color: var(--button-bg-color);
+    
+    &:visited {
+        color: var(--input-text-color);
+    }
+    
+    &:hover {
+        color: var(--text-color);
+    }
+
+}

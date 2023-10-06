@@ -1,0 +1,33 @@
+@use '../util/' as u;
+
+textarea {
+    background-color: var(--input-bg-color);
+    color: var(--input-text-color);
+    font-size: u.rem(15);
+    width: 100%;
+    height: u.em(120);
+    padding: u.em(15);
+    border: none;
+    border-radius: 8px;
+}
+
+button {
+    background-color: var(--button-bg-color);
+    height: u.rem(60);
+    border: none;
+    border-radius: 8px;
+    padding: 5px 0 0;
+    font-size: u.rem(22);
+    text-align: center;
+    cursor: pointer;
+    transition: all ease-in 100ms;
+
+    &:hover {
+        background-color: var(--btn-hover-color);
+        color: var(--text-color);
+    }
+
+    &:active {
+        background-color: var(--text-color);
+    }
+}
