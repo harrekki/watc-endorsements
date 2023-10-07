@@ -15,20 +15,26 @@ const app = initializeApp(appSettings);
 const database = getDatabase(app);
 const endorsementsDB = ref(database, "endorsements");
 
-const inputField = document.getElementById("endorse-field");
+const textField = document.getElementById("endorse-field");
+const fromField = document.getElementById("from-field");
+const toField = document.getElementById("to-field");
 const publishBtn = document.getElementById("publish-btn");
 const endorsementsList = document.getElementById("endorsements-wrapper");
 
 publishBtn.addEventListener("click", addToDatabase);
 
 function addToDatabase() {
-    let inputValue = inputField.value;
-
-    if(inputValue) {
-        push(endorsementsDB, inputValue);
+    let newEndorsement = {
+        to: toField.value,
+        from: fromField.value,
+        message: textField.value
     }
 
-    clearInputField();
+    if(newEndorsement) {
+        push(endorsementsDB, newEndorsement);
+    }
+
+    clearInputFields();
 }
 
 onValue(endorsementsDB, function(snapshot) {
@@ -47,8 +53,10 @@ onValue(endorsementsDB, function(snapshot) {
     }
 })
 
-function clearInputField() {
-    inputField.value = "";
+function clearInputFields() {
+    textField.value = "";
+    toField.value = "";
+    fromField.value = "";
 }
 
 function clearEndorsementsList() {
@@ -56,13 +64,21 @@ function clearEndorsementsList() {
 }
 
 function appendToEndorsementsList(item) {
-    let itemID = item[0];
-    let itemValue = item[1];
+    // const itemID = item[0];
+    const itemValue = item[1];
 
-    let newElem = document.createElement("article");
+    let article = document.createElement("article");
+    let toElem = document.createElement("h4");
+    let fromElem = document.createElement("h4");
+    let endorsementElem = document.createElement("p");
 
-    newElem.textContent = itemValue;
+    fromElem.textContent = `From: ${itemValue.from}`;
+    toElem.textContent = `To: ${itemValue.to}`;
+    endorsementElem.textContent = itemValue.message;
 
-    endorsementsList.prepend(newElem);
+    article.append(toElem, endorsementElem, fromElem);
+
+
+    endorsementsList.prepend(article);
 }
 

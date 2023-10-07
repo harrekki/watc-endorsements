@@ -3,6 +3,11 @@
 article {
     background-color: var(--text-color);
     color: var(--bg-color);
-    font-size: u.rem(12);
+    font-size: u.rem(14);
     padding: u.em(15);
+
+    p {
+        padding: u.rem(6) 0 u.rem(10);
+        line-height: normal;
+    }
 }
