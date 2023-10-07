@@ -40,6 +40,10 @@ onValue(endorsementsDB, function(snapshot) {
         for(let endorsement of endorsementsArray) {
             appendToEndorsementsList(endorsement);
         }
+    } else {
+        endorsementsList.innerHTML = `
+            <p>No endorsements yet!  Give someone a shout out!</p>
+        `;
     }
 })
 
@@ -55,12 +59,10 @@ function appendToEndorsementsList(item) {
     let itemID = item[0];
     let itemValue = item[1];
 
-    let newElem = `
-        <article>
-            ${itemValue}
-        </article>
-    `;
+    let newElem = document.createElement("article");
 
-    endorsementsList.innerHTML += newElem;
+    newElem.textContent = itemValue;
+
+    endorsementsList.prepend(newElem);
 }
 
