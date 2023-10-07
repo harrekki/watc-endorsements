@@ -48,7 +48,9 @@ onValue(endorsementsDB, function(snapshot) {
         }
     } else {
         endorsementsList.innerHTML = `
-            <p>No endorsements yet!  Give someone a shout out!</p>
+            <p>
+                No endorsements yet... Give someone a shout out!
+            </p>
         `;
     }
 })

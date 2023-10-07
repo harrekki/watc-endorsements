@@ -27,6 +27,12 @@ h1, h2, button {
     padding: u.rem(25) 0 u.rem(20);
 }
 
+#endorsements-wrapper > p {
+    color: var(--input-text-color);
+    font-style: italic;
+    text-align: center;
+}
+
 a {
     color: var(--button-bg-color);
     
