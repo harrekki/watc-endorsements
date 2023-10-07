@@ -15,10 +15,16 @@ main {
     padding: 0 u.em(36);
 }
 
-.form-wrapper {
+.form {
     display: flex;
     flex-direction: column;
     gap: u.em(15);
+}
+
+.input-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: u.rem(10);
 }
 
 #endorsements-wrapper {

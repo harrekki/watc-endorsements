@@ -1,14 +1,23 @@
 @use '../util/' as u;
 
-textarea {
+textarea, input {
     background-color: var(--input-bg-color);
-    color: var(--input-text-color);
+    color: var(--white);
     font-size: u.rem(15);
-    width: 100%;
-    height: u.em(120);
     padding: u.em(15);
     border: none;
     border-radius: 8px;
+
+}
+
+textarea {
+    width: 100%;
+    height: u.em(120);
+}
+
+input {
+    text-align: center;
+    max-width: 48%;
 }
 
 button {
