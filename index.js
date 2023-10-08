@@ -27,7 +27,8 @@ function addToDatabase() {
     let newEndorsement = {
         to: toField.value,
         from: fromField.value,
-        message: textField.value
+        message: textField.value,
+        likes: 0
     }
 
     if(newEndorsement) {
@@ -69,18 +70,33 @@ function appendToEndorsementsList(item) {
     // const itemID = item[0];
     const itemValue = item[1];
 
-    let article = document.createElement("article");
-    let toElem = document.createElement("h4");
-    let fromElem = document.createElement("h4");
-    let endorsementElem = document.createElement("p");
+    const newEndorsement = createEndorsementElem(itemValue);
 
-    fromElem.textContent = `From: ${itemValue.from}`;
-    toElem.textContent = `To: ${itemValue.to}`;
-    endorsementElem.textContent = itemValue.message;
-
-    article.append(toElem, endorsementElem, fromElem);
-
-
-    endorsementsList.prepend(article);
+    endorsementsList.prepend(newEndorsement);
 }
 
+function createEndorsementElem(value) {
+    let article = document.createElement("article");
+
+    let toElem = document.createElement("h4");
+    toElem.textContent = `To: ${value.to}`;
+
+    let endorsementElem = document.createElement("p");
+    endorsementElem.textContent = value.message;
+    
+    let endorsementFooterElem = document.createElement("div");
+    endorsementFooterElem.classList.add("endorsement-footer");
+    let fromElem = document.createElement("h4");
+    fromElem.textContent = `From: ${value.from}`;
+    let likesElem = document.createElement("button");
+    likesElem.innerHTML = `
+        <span id="heart">🖤</span>
+        ${value.likes}
+    `;
+    endorsementFooterElem.append(fromElem, likesElem);
+
+
+    article.append(toElem, endorsementElem, endorsementFooterElem);
+    
+    return article;
+}

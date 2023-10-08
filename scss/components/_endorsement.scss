@@ -10,4 +10,22 @@ article {
         padding: u.rem(6) 0 u.rem(10);
         line-height: normal;
     }
+
+    .endorsement-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        button {
+            background-color: inherit;
+            border: none;
+            cursor: pointer;
+            position: relative;
+
+            #heart:hover::before {
+                content: "❤️";
+                position: absolute;
+            }
+        }
+    }
 }
