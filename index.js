@@ -4,7 +4,7 @@ import {
     getDatabase, 
     ref,
     push,
-    onValue     
+    onValue,  
 } 
     from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"; 
 
@@ -47,6 +47,7 @@ onValue(endorsementsDB, function(snapshot) {
         for(let endorsement of endorsementsArray) {
             appendToEndorsementsList(endorsement);
         }
+
     } else {
         endorsementsList.innerHTML = `
             <p>
@@ -67,15 +68,15 @@ function clearEndorsementsList() {
 }
 
 function appendToEndorsementsList(item) {
-    // const itemID = item[0];
+    const itemID = item[0];
     const itemValue = item[1];
 
-    const newEndorsement = createEndorsementElem(itemValue);
+    const newEndorsement = createEndorsementElem(itemID, itemValue);
 
     endorsementsList.prepend(newEndorsement);
 }
 
-function createEndorsementElem(value) {
+function createEndorsementElem(id, value) {
     let article = document.createElement("article");
 
     let toElem = document.createElement("h4");
@@ -89,14 +90,14 @@ function createEndorsementElem(value) {
     let fromElem = document.createElement("h4");
     fromElem.textContent = `From: ${value.from}`;
     let likesElem = document.createElement("button");
+    likesElem.classList.add("like-btn");
     likesElem.innerHTML = `
-        <span id="heart">🖤</span>
+        <span class="heart" data-key="${id}">🖤</span>
         ${value.likes}
     `;
     endorsementFooterElem.append(fromElem, likesElem);
-
-
-    article.append(toElem, endorsementElem, endorsementFooterElem);
     
+    article.append(toElem, endorsementElem, endorsementFooterElem);
+
     return article;
 }

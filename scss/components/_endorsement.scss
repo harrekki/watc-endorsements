@@ -19,10 +19,13 @@ article {
         button {
             background-color: inherit;
             border: none;
-            cursor: pointer;
             position: relative;
+            
+            .heart {
+                cursor: pointer;
+            }
 
-            #heart:hover::before {
+            .heart:hover::before {
                 content: "❤️";
                 position: absolute;
             }
